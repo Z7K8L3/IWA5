@@ -1,38 +1,43 @@
-FREE_WARNING = 'Free shipping only applies to single customer orders'
-BANNED_WARNIN = 'Unfortunately we do not ship to your country of residence'
-NONE_SELECTED = '0'
+// constants for messages
+const FREE_WARNING = 'Free shipping only applies to single customer orders';
+const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence';
+const NONE_SELECTED = 0;
 
-if (location === RSA) { 
-    shipping === 400 && currency === 'R' 
-}
+// item costs
+const shoes = 300 * 1;
+const toys = 100 * 5
+const shirts = 150 * NONE_SELECTED;
+const batteries = 35 * 2;
+const pens = 5 * NONE_SELECTED;
 
-if (location === NAM) {
-    shipping === 600
+const location = 'RSA'; //User location (RSA, NAM, NK)
+const currency = 'R'; //User currency (R, $)
+const customers = 1; //Number of customers
+
+let shipping = 0;
+let totalCost = 0;
+
+totalCost = shoes + toys + shirts + batteries + pens;
+
+// shipping cost based on location
+if (location === 'RSA') { 
+    shipping = 400 && currency === 'R';
+} else if (location === 'NAM') {
+    shipping = 600;
 } else {
-    shipping === 800
+    shipping = 800;
 }
 
-shoes = 300 * 1
-toys - 100 * 5
-shirts = 150 * 'NONE_SELECTED'
-batteries 35 * 2
-pens = 5 * 'NONE_SELECTED' 
-
-shipping = null
-currency = $
-
-if (shoes + batteries + pens + shirts > 1000 &&  ) {
-	if (location = NAM && customers < 2) {
-			if (location = RSA)
-		    shipping = 0 || calcShipping
-		}
-	}
+if (location === 'NK') {
+    console.log(BANNED_WARNING);
 }
 
-if (shipping = 0) && (customers !=== 1) { console.log(WARNING) }
+if (totalCost >= 1000 && (location === 'RSA' || location === 'NAM') && customers < 2) {
+		    shipping;
+}
 
-location = 'NK' ? console.log(WARNING) : console.log('price', currency, shoes + batteries + pens + shirts + shipping)
+if (shipping = 0 && customers !== 1) {
+    console.log(FREE_WARNING);
+}
 
-customers = '1'
-const location = 'RSA'
-currency = null
+console.log('price:', currency, totalCost + shipping);

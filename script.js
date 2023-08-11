@@ -21,9 +21,8 @@ totalCost = shoes + toys + shirts + batteries + pens;
 
 // Shipping cost based on userLocation
 if (userLocation === 'RSA') {
-    if (currency === 'R') {
-        shipping = 400 ;
-    }
+    currency = 'R';
+    shipping = 400;
 } else if (userLocation === 'NAM') {
     shipping = 600;
 } else {
@@ -33,9 +32,12 @@ if (userLocation === 'RSA') {
 // If user is from NK and if free shipping applies
 if (userLocation === 'NK') {
     console.log(BANNED_WARNING);
-} else {
-    if (totalCost >= 1000 && (userLocation === 'RSA' || userLocation === 'NAM') && customers === 1) {
+}
+    
+if (totalCost >= 1000 && (userLocation === 'RSA' || userLocation === 'NAM') && customers === 1) {
         shipping = 0;
+} else {
+    console.log(FREE_WARNING)
 }
 
 // When warning message should be displayed
@@ -46,4 +48,3 @@ if (shipping === 0 && customers !== 1) {
 // Display the total price
 const totalPrice = totalCost + shipping;
 console.log('Price:', currency, totalPrice);
-}

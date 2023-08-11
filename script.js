@@ -11,7 +11,7 @@ const batteries = 35 * 2;
 const pens = 5 * NONE_SELECTED;
 
 const userLocation = 'RSA'; //User userLocation (RSA, NAM, NK)
-const currency = 'R'; //User currency (R, $)
+let currency = 'R'; //User currency (R, $)
 const customers = 1; //Number of customers
 
 let shipping = 0;
@@ -37,7 +37,7 @@ if (userLocation === 'NK') {
 if (totalCost >= 1000 && (userLocation === 'RSA' || userLocation === 'NAM') && customers === 1) {
         shipping = 0;
 } else {
-    console.log(FREE_WARNING)
+    console.log(FREE_WARNING);
 }
 
 // When warning message should be displayed
